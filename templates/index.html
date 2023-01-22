@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Table Co-ordinates Finder</title>
+{% endblock %}
+
+{% block body %}
+
+<div class="content">
+    <h1>Choose file from device</h1>
+
+    <form action="/detect/table/" enctype="multipart/form-data" method="POST">
+        <input type="file" name="image" id="image">
+        <input type="submit" value="Submit">
+    </form>
+
+    {% with messages = get_flashed_messages() %}  
+    {% if messages %}  
+      {% for message in messages %}  
+           <p style="text-align:center">{{ message }}</p>  
+      {% endfor %}  
+    {% endif %}  
+    {% endwith %} 
+
+</div>
+
+{% endblock %}
